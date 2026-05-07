@@ -1,1 +1,236 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مشروع استدامة | قسم الإحصاء</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&family=Tajawal:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --beige: #F5F5DC;
+            --honey: #E4A853;
+            --light-green: #8DB580;
+            --dark-green: #4A6741;
+            --text-color: #3E3E3E;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--beige);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        header {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px 5%;
+            position: fixed;
+            width: 90%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark-green);
+            margin: 0 15px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        nav a:hover { color: var(--honey); }
+
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1605650112111-85e683398939?auto=format&fit=crop&q=80&w=1920') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+
+        .hero h1 { font-size: 3rem; margin-bottom: 20px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        .hero p { font-size: 1.5rem; max-width: 800px; }
+
+        .hero-btns { margin-top: 30px; }
+        .btn {
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            margin: 10px;
+            display: inline-block;
+            transition: 0.3s;
+            font-weight: bold;
+        }
+        .btn-honey { background-color: var(--honey); color: white; }
+        .btn-green { background-color: var(--light-green); color: white; }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+
+        section { padding: 80px 10%; text-align: center; }
+        h2 { color: var(--dark-green); font-size: 2.2rem; margin-bottom: 40px; }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-bottom: 5px solid var(--honey);
+            transition: 0.3s;
+        }
+        .card:hover { transform: scale(1.05); }
+
+        .stats-section { background-color: var(--dark-green); color: white; }
+        .stats-section h2 { color: white; }
+        .stat-number { font-size: 3rem; display: block; color: var(--honey); font-weight: bold; }
+
+        .steps { text-align: right; max-width: 800px; margin: 0 auto; }
+        .step { margin-bottom: 20px; padding: 20px; background: rgba(228, 168, 83, 0.1); border-right: 5px solid var(--honey); }
+
+        .survey-container {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 20px;
+            max-width: 500px;
+            margin: 40px auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .survey-option {
+            background: var(--beige);
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: bold;
+        }
+        .survey-option:hover { background: var(--honey); color: white; }
+        .results { display: none; margin-top: 20px; text-align: right; }
+        .progress-bar { background: #eee; height: 10px; border-radius: 5px; margin-top: 5px; overflow: hidden; }
+        .progress-fill { background: var(--light-green); height: 100%; width: 0%; transition: 1s ease; }
+
+        footer { background: #3e3e3e; color: white; padding: 40px; text-align: center; }
+        .quote { font-style: italic; font-size: 1.4rem; color: var(--honey); margin-bottom: 20px; }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div style="font-weight: bold; font-size: 1.5rem; color: var(--dark-green);">بصمة استدامة 🐝</div>
+        <nav>
+            <a href="#about">من نحن</a>
+            <a href="#quality">الجودة</a>
+            <a href="#stats">الإحصاء</a>
+            <a href="#survey">الاستبانة</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>بديل مستدام للبلاستيك… بجودة مدروسة وإحصاء دقيق</h1>
+        <p>نحو مستقبل أخضر يجمع بين دقة الأرقام وحماية الأرض.</p>
+        <div class="hero-btns">
+            <a href="#about" class="btn btn-honey">اكتشف المشروع</a>
+            <a href="#stats" class="btn btn-green">الإحصاء والاستدامة</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>من نحن؟</h2>
+        <p style="font-size: 1.2rem; line-height: 1.8; max-width: 900px; margin: 0 auto;">
+            نحن طالبات في قسم الإحصاء، ويهدف مشروعنا إلى تقديم بديل مستدام وصديق للبيئة لأغطية البلاستيك التقليدية باستخدام شمع النحل الطبيعي، مع التركيز على الجودة والاستدامة والاعتماد على الأساليب الإحصائية في تطوير المنتج.
+        </p>
+    </section>
+
+    <section id="quality" style="background-color: #fff;">
+        <h2>ما هي الجودة؟</h2>
+        <div class="grid">
+            <div class="card"><h3>الإتقان</h3><p>صناعة يدوية بلمسات احترافية.</p></div>
+            <div class="card"><h3>المطابقة</h3><p>مطابقة لأعلى المعايير الصحية.</p></div>
+            <div class="card"><h3>الكفاءة</h3><p>أداء مثالي في حفظ الأطعمة.</p></div>
+            <div class="card"><h3>الاستدامة</h3><p>منتج صديق للبيئة 100%.</p></div>
+        </div>
+    </section>
+
+    <section id="stats" class="stats-section">
+        <h2>كيف يساعدنا الإحصاء؟</h2>
+        <div class="grid">
+            <div class="card" style="color: #333;">
+                <h3>رصد الانحرافات</h3>
+                <p>نتأكد من دقة المقاسات، الوزن، وجودة التصنيع في كل قطعة.</p>
+            </div>
+            <div class="card" style="color: #333;">
+                <h3>التحكم بالعمليات</h3>
+                <p>باستخدام العينات الإحصائية وخرائط التحكم لضمان ثبات الجودة.</p>
+            </div>
+            <div class="card" style="color: #333;">
+                <h3>التنبؤ بالمشكلات</h3>
+                <p>نكتشف الأخطاء إحصائياً قبل وصول المنتج للمستهلك.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>الجودة والاستدامة بالأرقام</h2>
+        <div class="grid">
+            <div class="stat-item"><span class="stat-number">61%</span> نسبة هدر البلاستيك في المملكة وخليجياً.</div>
+            <div class="stat-item"><span class="stat-number">94%</span> نسبة الاستعداد لاستخدام البدائل المستدامة.</div>
+            <div class="stat-item"><span class="stat-number">9%</span> فقط من البلاستيك يُعاد تدويره عالمياً.</div>
+        </div>
+    </section>
+
+    <section id="steps" style="background: white;">
+        <h2>مراحل التصنيع</h2>
+        <div class="steps">
+            <div class="step">1. إعداد الغطاء من شمع النحل والقطن الطبيعي.</div>
+            <div class="step">2. قص وتشكيل الغطاء بالمقاسات المحددة.</div>
+            <div class="step">3. فحص جودة المنتج إحصائياً (الوزن والمطابقة).</div>
+            <div class="step">4. تغليف مستدام يحافظ على هوية المنتج.</div>
+        </div>
+        <p style="font-weight: bold; margin-top: 20px; color: var(--honey);">"يتم فحص الجودة إحصائيًا لضمان أفضل نتيجة."</p>
+    </section>
+
+    <section id="survey">
+        <h2>شاركنا برأيك</h2>
+        <div class="survey-container" id="surveyBox">
+            <h3>هل ستستخدم أغطية شمع النحل كبديل للبلاستيك؟</h3>
+            <div class="survey-option" onclick="vote()">نعم، بالتأكيد</div>
+            <div class="survey-option" onclick="vote()">ربما في المستقبل</div>
+            <div class="survey-option" onclick="vote()">لا، أفضل البلاستيك</div>
+
+            <div id="surveyResults" class="results">
+                <p>نعم: 94%</p>
+                <div class="progress-bar"><div class="progress-fill" style="width: 94%;"></div></div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="quote">"حين تجتمع الجودة مع الإحصاء… تصبح الاستدامة أسلوب حياة."</div>
+        <p>مشروع مادة مراقبة الجودة - قسم الإحصاء - جامعة الملك عبدالعزيز</p>
+    </footer>
+
+    <script>
+        function vote() {
+            document.getElementById('surveyResults').style.display = 'block';
+            document.querySelectorAll('.survey-option').forEach(el => el.style.display = 'none');
+        }
+    </script>
+</body>
+</html>
 
